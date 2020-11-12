@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ферма на Vue.js</title>
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+        <!-- <div class="row mb-2">
+          <div class="col-6">
+            <button
+              id="regulations"
+              @mouseover="changeText"
+              @mouseleave="changeText2"
+            >
+              {{title}}
+            </button>
+            <span class="h">{{gameTime}}</span>
+          </div>
+        </div> -->
+        <div class="row">
+          <div class="col-12 col-lg-6">
+            <div class="row" id="maps">
+              <div
+                class="col-2 p-0 object"
+                v-for="(object, index) in objects"
+                @click="buy(index)"
+                v-bind:class="{'is-no-start': objects[index].isStart}"
+              >
+                <img :src="objects[index].img" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-6">
+            <div class="row mb-5">
+              <div
+                class="col-3"
+                v-for="(item, index) in types"
+                v-if="index >= 1"
+                @click="selected(index)"
+                :class="{'active': select_type == index}"
+              >
+                <img :src="item.img" alt="" />
+              </div>
+              <div class="col-3">
+                <img src="img/money.png" alt="" /> {{allMoney}}
+              </div>
+            </div>
+            <div class="row mt-5">
+              <div
+                class="col-4"
+                v-for="item, index in types"
+                v-if="index >= 1"
+                @click="sell(index)"
+              >
+                <img :src="item.imgDone" alt="" /> {{item.count}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.min.js"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
